@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=ecKw7FfikwI&ab_channel=TomIsLoading -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+    <script src="drag.js" defer></script>
+  </head>
+  <body>
+    <main class="page__wrapper">
+      <section class="board__wrapper">
+        <header class="toolbar">
+          <!-- NEW TASK MODAL -->
+          <span class="new-task__modal-open">ADD task</span>
+          <div class="new-task__modal-container">
+            <div class="new-task__modal-content">
+              <button class="new-task__modal-close">&times;</button>
+              <form id="new-task__form">
+                <label for="new-task__input-title"></label>
+                <input type="text" id="new-task__input-title" />
+                <label for="new-task__input-description"></label>
+                <input type="text" id="new-task__input-description" />
+                <button type="submit" id="new-task__submit">Add task</button>
+              </form>
+            </div>
+          </div>
+          <!-- END OF NEW TASK MODAL -->
+          <!-- POMODORO MODAL -->
+          <span class="pomo__modal-open">OPEN POMO</span>
+          <div class="pomo__modal-container">
+            <div class="pomo__modal-content">
+              <button class="pomo__modal-close">&times;</button>
+              <form id="pomo__form">
+                <input type="text" id="pomo__timer-work" />
+                <input type="text" id="pomo__timer-break" />
+                <button type="submit" id="toolbar__add-submit">Add task</button>
+              </form>
+            </div>
+          </div>
+          <!-- END OF POMODORO MODAL -->
+        </header>
+        <section class="column__wrapper">
+          <!-- TODO COLUMN -->
+          <section class="column todo-column">
+            <div class="task" draggable="true">
+              <h3 class="task-title">Lorem, ipsum dolor.</h3>
+              <p class="task-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
+                suscipit magni rerum, laudantium ad non architecto accusantium,
+                id eum quod unde?
+              </p>
+            </div>
+            <div class="task" draggable="true">
+              <h3 class="task-title">Lorem, ipsum dolor.</h3>
+              <p class="task-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
+                suscipit magni rerum, laudantium ad non architecto accusantium,
+                id eum quod unde?
+              </p>
+            </div>
+            <div class="task" draggable="true">
+              <h3 class="task-title">Lorem, ipsum dolor.</h3>
+              <p class="task-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
+                suscipit magni rerum, laudantium ad non architecto accusantium,
+                id eum quod unde?
+              </p>
+            </div>
+          </section>
+          <!-- END OF TODO COLUMN -->
+          <!-- IN PROGRESS COLUMN -->
+          <section class="column progress-column">
+            <div class="task" draggable="true">
+              <h3 class="task-title">Lorem, ipsum dolor.</h3>
+              <p class="task-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
+                suscipit magni rerum, laudantium ad non architecto accusantium,
+                id eum quod unde?
+              </p>
+            </div>
+          </section>
+          <!-- END OF IN PROGRESS COLUMN -->
+          <!-- DONE COLUMN -->
+          <section class="column done-column">
+            <div class="task" draggable="true">
+              <h3 class="task-title">Lorem, ipsum dolor.</h3>
+              <p class="task-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
+                suscipit magni rerum, laudantium ad non architecto accusantium,
+                id eum quod unde?
+              </p>
+            </div>
+          </section>
+        </section>
+        <!-- END OF COLUMN WRAPPER -->
+      </section>
+      <!-- END OF BOARD WRAPPER -->
+    </main>
+  </body>
+</html>
