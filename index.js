@@ -3,54 +3,31 @@
 //
 // MODALS
 //
+// Get list of all button which open a modal
+const openModalBtns = [...document.querySelectorAll('.open-modal-btn')];
+const modalContainers = [...document.querySelectorAll('.modal-container')];
+
+// Functions to open/close modal
 const openModal = (modal) => {
   modal.classList.add('modal-displayed');
+
+  // Close modal if user clicks outside of modal or clicks exit button
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target.classList.contains('close-modal-btn')) {
+      closeModal(modal);
+    }
+  });
 };
+
 const closeModal = (modal) => {
   modal.classList.remove('modal-displayed');
 };
 
-//
-// NEW TASK MODAL
-//
-const addTaskBtn = document.querySelector('.new-task__modal-open');
-const closeTaskModalBtn = document.querySelector('.new-task__modal-close');
-const newTaskModal = document.querySelector('.new-task__modal-container');
-
-// Open modal when add button is clicked
-addTaskBtn.addEventListener('click', () => openModal(newTaskModal));
-
-// Close modal when close button is clicked
-closeTaskModalBtn.addEventListener('click', () => closeModal(newTaskModal));
-
-// Close modal when user clicks outside of modal
-newTaskModal.addEventListener('click', (e) => {
-  if (e.target === newTaskModal) {
-    closeModal(newTaskModal);
-  }
+// Open modal based on index of which button was clicked
+// Modal and their corresponding 'open' and 'close' buttons --
+// must be at the same index in their respective arrays
+const toolbar = document.querySelector('.toolbar');
+toolbar.addEventListener('click', (e) => {
+  const modalIndex = openModalBtns.indexOf(e.target);
+  if (openModalBtns.includes(e.target)) openModal(modalContainers[modalIndex]);
 });
-
-//
-// POMODORO MODAL
-//
-const addPomoBtn = document.querySelector('.pomo__modal-open');
-const closePomoBtn = document.querySelector('.pomo__modal-close');
-const pomoModal = document.querySelector('.pomo__modal-container');
-// Open modal when add button is clicked
-addPomoBtn.addEventListener('click', () => openModal(pomoModal));
-
-// Close modal when close button is clicked
-closePomoBtn.addEventListener('click', () => closeModal(pomoModal));
-
-// Close modal when user clicks outside of modal
-pomoModal.addEventListener('click', (e) => {
-  if (e.target === pomoModal) {
-    closeModal(pomoModal);
-  }
-});
-
-//
-//
-//  REFACTOR TO HAVE TOOLBAR EVENT LISTENER TO OPEN EACH MODAL
-//
-//

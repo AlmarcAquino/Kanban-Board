@@ -14,10 +14,12 @@
       <section class="board__wrapper">
         <header class="toolbar">
           <!-- NEW TASK MODAL -->
-          <span class="new-task__modal-open">ADD task</span>
-          <div class="new-task__modal-container">
+          <span class="new-task__modal-open open-modal-btn">ADD task</span>
+          <div class="new-task__modal-container modal-container">
             <div class="new-task__modal-content">
-              <button class="new-task__modal-close">&times;</button>
+              <button class="new-task__modal-close close-modal-btn">
+                &times;
+              </button>
               <form id="new-task__form">
                 <label for="new-task__input-title"></label>
                 <input type="text" id="new-task__input-title" />
@@ -29,10 +31,10 @@
           </div>
           <!-- END OF NEW TASK MODAL -->
           <!-- POMODORO MODAL -->
-          <span class="pomo__modal-open">OPEN POMO</span>
-          <div class="pomo__modal-container">
+          <span class="pomo__modal-open open-modal-btn">OPEN POMO</span>
+          <div class="pomo__modal-container modal-container">
             <div class="pomo__modal-content">
-              <button class="pomo__modal-close">&times;</button>
+              <button class="pomo__modal-close close-modal-btn">&times;</button>
               <form id="pomo__form">
                 <input type="text" id="pomo__timer-work" />
                 <input type="text" id="pomo__timer-break" />
