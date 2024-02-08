@@ -1,4 +1,8 @@
+// TODO:
+//    Add drag and drop functionality
+//
 // GLOBALS
+//
 
 //
 // MODALS
@@ -31,3 +35,5 @@ toolbar.addEventListener('click', (e) => {
   const modalIndex = openModalBtns.indexOf(e.target);
   if (openModalBtns.includes(e.target)) openModal(modalContainers[modalIndex]);
 });
+
+//
