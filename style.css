@@ -73,8 +73,7 @@ body {
     MODAL
 
    -------- */
-.new-task__modal-container,
-.pomo__modal-container {
+.modal-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -87,7 +86,8 @@ body {
 }
 
 .new-task__modal-content,
-.pomo__modal-content {
+.pomo__modal-content,
+.project__modal-content {
   background-color: #fff;
   padding: 10rem;
 }
