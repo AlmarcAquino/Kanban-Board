@@ -37,6 +37,7 @@ body {
 .page__wrapper {
   max-width: 1440px;
   margin-inline: auto;
+  height: 90vh;
 }
 
 /* --------
@@ -46,12 +47,13 @@ body {
 -------- */
 .board__wrapper {
   margin-top: 3rem;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   gap: 1rem;
-  background-color: #fff;
 }
 
 /* --------
@@ -83,9 +85,10 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
-.new-task__modal-content,
+.task__modal-content,
 .pomo__modal-content,
 .project__modal-content {
   background-color: #fff;
@@ -108,10 +111,22 @@ body {
   gap: 2rem;
 }
 
-.column {
+.column__header {
+  display: flex;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #614747;
+}
+
+.task-column {
   background-color: #afa9a9;
   width: 30%;
   padding: 1.5rem;
+  overflow-y: auto;
+  max-height: 70vh;
 }
 
 /* --------
@@ -122,5 +137,11 @@ body {
 .task {
   background-color: #cecccc;
   margin-top: 1rem;
-  padding: 0.6rem;
+  padding: 3rem;
+  cursor: move;
+}
+
+.is-dragging {
+  scale: 1.025;
+  background-color: #fff;
 }
