@@ -32,7 +32,7 @@ taskColumns.forEach((column) => {
   });
 });
 
-//
+// Find which task is the closest below the task being dragged
 const insertTaskAbove = (column, cursorY) => {
   // Grab all tasks in the current column that aren't being dragged
   const currentTasksInColumn = column.querySelectorAll(
@@ -44,10 +44,11 @@ const insertTaskAbove = (column, cursorY) => {
   let closestTask = null;
   let closestOffset = Number.NEGATIVE_INFINITY;
 
-  //
   currentTasksInColumn.forEach((task) => {
     // Get the top of each task in the clumn
     const { top } = task.getBoundingClientRect();
+    // Find which task is closest by finding the diff
+    // between the top of each task and the cursor position
     const offsetFromTop = cursorY - top;
 
     if (offsetFromTop < 0 && offsetFromTop > closestOffset) {
