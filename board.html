@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="index.js" defer></script>
-    <script src="drag.js" defer></script>
+    <script src="./board.js" defer></script>
+    <script src="./drag.js" defer></script>
   </head>
   <body>
     <main class="page__wrapper">
@@ -30,7 +30,7 @@
           >
             <div class="task__modal-content">
               <button class="task__modal-close close-modal-btn">&times;</button>
-              <form id="task__form">
+              <form id="task__form" data-form-name="task">
                 <label for="task__input-title">Title</label>
                 <input type="text" id="task__input-title" />
                 <label for="task__input-description">Description</label>
@@ -48,7 +48,7 @@
           >
             <div class="pomo__modal-content">
               <button class="pomo__modal-close close-modal-btn">&times;</button>
-              <form id="pomo__form">
+              <form id="pomo__form" data-form-name="pomo">
                 <label for="pomo__form-work">Set Work Time</label>
                 <input type="number" name="" id="pomo__form-work" />
                 <label for="pomo__form-break">Set Break Time</label>
@@ -72,7 +72,7 @@
               <button class="project__modal-close close-modal-btn">
                 &times;
               </button>
-              <form id="project__form">
+              <form id="project__form" data-form-name="project">
                 <label for="project__form-title">PROJECT TITLE</label>
                 <input type="text" id="project__form-title" />
                 <button type="submit" id="project__form-submit">
@@ -86,7 +86,7 @@
         <!-- COLUMN WRAPPER -->
         <section class="column__wrapper">
           <!-- TODO COLUMN -->
-          <section class="task-column todo-column">
+          <section class="task-column todo-column" data-column-name="task">
             <div class="column__header">
               <h3 class="column__title">TODO</h3>
               <span class="add-task-btn" data-modal-open="task">+</span>
@@ -113,10 +113,22 @@
                 id eum quod unde?
               </p>
             </div>
+            <div class="task" draggable="true">
+              <h3 class="task-title">Lorem, ipsum dolor.</h3>
+              <p class="task-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
+                suscipit magni rerum, laudantium ad non architecto accusantium,
+                id eum quod unde?
+              </p>
+            </div>
           </section>
           <!-- END OF TODO COLUMN -->
           <!-- IN PROGRESS COLUMN -->
-          <section class="task-column progress-column">
+          <section
+            class="task-column progress-column"
+            data-column-name="progress"
+          >
             <div class="column__header">
               <h3 class="column__title">DOING</h3>
               <span class="add-task-btn" data-modal-open="task">+</span>
@@ -142,7 +154,7 @@
           </section>
           <!-- END OF IN PROGRESS COLUMN -->
           <!-- DONE COLUMN -->
-          <section class="task-column done-column">
+          <section class="task-column done-column" data-column-name="done">
             <div class="column__header">
               <h3 class="column__title">DONE</h3>
               <span class="add-task-btn" data-modal-open="task">+</span>
