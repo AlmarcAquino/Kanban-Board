@@ -84,89 +84,128 @@
           <!-- END OF NEW PROJECT MODAL -->
         </header>
         <!-- COLUMN WRAPPER -->
-        <section class="column__wrapper">
+        <section class="columns__wrapper">
           <!-- TODO COLUMN -->
-          <section class="task-column todo-column" data-column-name="task">
-            <div class="column__header">
+          <section class="column__container">
+            <header class="column__header">
               <h3 class="column__title">TODO</h3>
-              <span class="add-task-btn" data-modal-open="task">+</span>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Call Doctor</h3>
-              <p class="task-description">Schedule for afternoon on Friday</p>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Lorem, ipsum dolor.</h3>
-              <p class="task-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
-                suscipit magni rerum, laudantium ad non architecto accusantium,
-                id eum quod unde?
-              </p>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Lorem, ipsum dolor.</h3>
-              <p class="task-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
-                suscipit magni rerum, laudantium ad non architecto accusantium,
-                id eum quod unde?
-              </p>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Lorem, ipsum dolor.</h3>
-              <p class="task-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
-                suscipit magni rerum, laudantium ad non architecto accusantium,
-                id eum quod unde?
-              </p>
+              <span
+                class="add-task-btn"
+                data-modal-open="task"
+                data-target-column="todo"
+                >+</span
+              >
+            </header>
+            <div class="task-column todo-column" data-column-name="todo">
+              <div class="task" draggable="true">
+                <h3 class="task-title">Call Doctor</h3>
+                <p class="task-description">Schedule for afternoon on Friday</p>
+              </div>
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor. 2</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor. 3</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor. 4</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
             </div>
           </section>
           <!-- END OF TODO COLUMN -->
           <!-- IN PROGRESS COLUMN -->
-          <section
-            class="task-column progress-column"
-            data-column-name="progress"
-          >
-            <div class="column__header">
+          <section class="column__container">
+            <header class="column__header">
               <h3 class="column__title">DOING</h3>
-              <span class="add-task-btn" data-modal-open="task">+</span>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Lorem, ipsum dolor.</h3>
-              <p class="task-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
-                suscipit magni rerum, laudantium ad non architecto accusantium,
-                id eum quod unde?
-              </p>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Lorem, ipsum dolor.</h3>
-              <p class="task-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
-                suscipit magni rerum, laudantium ad non architecto accusantium,
-                id eum quod unde?
-              </p>
+              <span
+                class="add-task-btn"
+                data-modal-open="task"
+                data-target-column="progress"
+                >+</span
+              >
+            </header>
+            <div
+              class="task-column progress-column"
+              data-column-name="progress"
+            >
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor. XXX</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor YYY</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor 333</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor 444</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
             </div>
           </section>
           <!-- END OF IN PROGRESS COLUMN -->
           <!-- DONE COLUMN -->
-          <section class="task-column done-column" data-column-name="done">
-            <div class="column__header">
+          <section class="column__container">
+            <header class="column__header">
               <h3 class="column__title">DONE</h3>
-              <span class="add-task-btn" data-modal-open="task">+</span>
-            </div>
-            <div class="task" draggable="true">
-              <h3 class="task-title">Lorem, ipsum dolor.</h3>
-              <p class="task-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                quibusdam dolorem veritatis sint vel, quia tenetur voluptates ab
-                suscipit magni rerum, laudantium ad non architecto accusantium,
-                id eum quod unde?
-              </p>
+              <span
+                class="add-task-btn"
+                data-modal-open="task"
+                data-target-column="done"
+                >+</span
+              >
+            </header>
+            <div class="task-column done-column" data-column-name="done">
+              <div class="task" draggable="true">
+                <h3 class="task-title">Lorem, ipsum dolor. ZZZ</h3>
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
+                  ab suscipit magni rerum, laudantium ad non architecto
+                  accusantium, id eum quod unde?
+                </p>
+              </div>
             </div>
           </section>
         </section>
