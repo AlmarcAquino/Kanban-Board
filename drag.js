@@ -2,6 +2,7 @@
 const taskTiles = document.querySelectorAll('.task');
 const taskColumns = document.querySelectorAll('.task-column');
 
+// FIXME: NEWLY ADDED TASKS CANNOT BE DRAGGED (not in event listener?)
 // Add 'is-dragging' class when task is being dragged
 // Remove 'is-dragging' class when task is no longer being dragged
 taskTiles.forEach((task) => {
@@ -38,21 +39,21 @@ const insertTaskAbove = (column, cursorY) => {
   const currentTasksInColumn = column.querySelectorAll(
     '.task:not(.is-dragging)'
   );
-
   // Set closestTask to null (bottom of column)
   // Set closestOffset to negative infinity (bottom of page)
   let closestTask = null;
   let closestOffset = Number.NEGATIVE_INFINITY;
 
   currentTasksInColumn.forEach((task) => {
-    // Get the top of each task in the clumn
-    const { top } = task.getBoundingClientRect();
+    // Get the top/bottom of each task in the clumn
+    const { top, bottom } = task.getBoundingClientRect();
+    const vertCenter = (top + bottom) / 2;
     // Find which task is closest by finding the diff
-    // between the top of each task and the cursor position
-    const offsetFromTop = cursorY - top;
+    // between the center of each task and the cursor position
+    const offsetFromCenter = cursorY - vertCenter;
 
-    if (offsetFromTop < 0 && offsetFromTop > closestOffset) {
-      closestOffset = offsetFromTop;
+    if (offsetFromCenter < 0 && offsetFromCenter > closestOffset) {
+      closestOffset = offsetFromCenter;
       closestTask = task;
     }
   });
