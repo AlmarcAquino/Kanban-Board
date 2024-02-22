@@ -2,20 +2,18 @@
 const taskTiles = document.querySelectorAll('.task');
 const taskColumns = document.querySelectorAll('.task-column');
 
-// FIXME: NEWLY ADDED TASKS CANNOT BE DRAGGED (not in event listener?)
-// Add 'is-dragging' class when task is being dragged
-// Remove 'is-dragging' class when task is no longer being dragged
-taskTiles.forEach((task) => {
-  task.addEventListener('dragstart', () => {
-    task.classList.add('is-dragging');
-  });
-  task.addEventListener('dragend', () => {
-    task.classList.remove('is-dragging');
-  });
-});
-
 // Check each column to see if a task is being dragged over it
 taskColumns.forEach((column) => {
+  // Add 'is-dragging' class when task is being dragged
+  column.addEventListener('dragstart', (e) => {
+    if (e.target.matches('.task')) e.target.classList.add('is-dragging');
+  });
+
+  // Remove 'is-dragging' class when task is no longer being dragged
+  column.addEventListener('dragend', (e) => {
+    if (e.target.matches('.task')) e.target.classList.remove('is-dragging');
+  });
+
   column.addEventListener('dragover', (e) => {
     e.preventDefault();
 
