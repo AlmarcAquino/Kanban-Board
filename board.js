@@ -1,3 +1,4 @@
+export { updateTaskList as updateTasks };
 //
 // GLOBALS
 //
@@ -37,9 +38,11 @@ const manageModal = (modalInfo) => {
   const handleFormSubmission = (e) => {
     e.preventDefault();
     if (formName === 'task') {
-      addTaskToColumn(inputs, modalInfo.targetColumnName);
+      const isAddedFromModal = true;
+      addTaskToColumn(inputs, modalInfo.targetColumnName, isAddedFromModal);
       closeModal(modal);
     }
+    updateTaskList();
     modalForm.removeEventListener('submit', handleFormSubmission);
   };
 
@@ -83,18 +86,26 @@ const determineTargetColumn = (btn) => {
 };
 
 // Add new task with user inputs
-const addTaskToColumn = (inputs, columnName) => {
+const addTaskToColumn = (inputs, columnName, isAddedFromModal) => {
   const column = document.querySelector(`.${columnName}-column`);
-  const taskTitle = inputs[0].value;
-  const taskDescription = inputs[1].value;
+  const taskTitle = inputs[0].value || inputs[0];
+  const taskDescription = inputs[1].value || inputs[1];
   const newTask = `
   <div class="task" draggable="true">
     <h3 class="task-title">${taskTitle}</h3>
     <p class="task-description">${taskDescription}</p>
+    <button class="delete-task-btn" onclick="deleteTask(this.parentNode)">DELETE</button>
   </div>`;
+  // console.log(typeof taskDescription);
 
-  column.insertAdjacentHTML('afterbegin', newTask);
-  clearFormInputs(inputs);
+  // Append task to the bottom of the list if added from modal
+  // Append task to the top of the column if initializing page
+  if (isAddedFromModal) {
+    clearFormInputs(inputs);
+    column.insertAdjacentHTML('afterbegin', newTask);
+  } else {
+    column.insertAdjacentHTML('beforeend', newTask);
+  }
 };
 
 // Reset form inputs
@@ -103,3 +114,50 @@ const clearFormInputs = (inputs) => {
     input.value = '';
   });
 };
+
+//
+// LOCAL STORAGE
+//
+let taskArr = [];
+const updateTaskList = () => {
+  taskArr = [];
+  const currentTasks = document.querySelectorAll('.task');
+  currentTasks.forEach((task) => {
+    let taskObj = {};
+    taskObj.taskColumn = task.closest('.task-column').dataset.columnName;
+    taskObj.taskTitle = task.querySelector('.task-title').innerText;
+    taskObj.taskDescription = task.querySelector('.task-description').innerText;
+    taskArr.push(taskObj);
+  });
+  console.log(taskArr);
+  storeTaskList(taskArr);
+};
+
+// Update local storage with current task list
+const storeTaskList = (taskList) => {
+  const serializedTaskList = JSON.stringify(taskList);
+  localStorage.setItem('taskList', serializedTaskList);
+  console.log(localStorage.getItem('taskList'));
+};
+
+// TODO: fix error that occurs when calling this
+// may be due to input type
+const displayTaskList = () => {
+  const taskList = JSON.parse(localStorage.getItem('taskList'));
+  taskList.forEach((task) => {
+    const { taskTitle, taskDescription, taskColumn } = task;
+    const taskInfo = [taskTitle, taskDescription];
+    const taskName = taskColumn;
+    const isAddedFromModal = false;
+    addTaskToColumn(taskInfo, taskName, isAddedFromModal);
+  });
+};
+
+window.onload = () => {
+  displayTaskList();
+};
+// updateTaskList();
+
+//
+//  TASKS
+//
