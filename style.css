@@ -88,9 +88,7 @@ body {
   z-index: 2;
 }
 
-.task__modal-content,
-.pomo__modal-content,
-.project__modal-content {
+.modal-content {
   background-color: #fff;
   padding: 10rem;
 }
@@ -110,6 +108,7 @@ body {
   justify-content: center;
   gap: 2rem;
   height: 100%;
+  width: 100%;
 }
 
 .column__container {
@@ -150,4 +149,8 @@ body {
 .is-dragging {
   transform: scale(1.025);
   background-color: #fff;
+}
+
+.delete-task-btn {
+  background-color: green;
 }
