@@ -13,8 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="./board.js" defer></script>
-    <script src="./drag.js" defer></script>
   </head>
   <body>
     <main class="page__wrapper">
@@ -28,7 +26,7 @@
             class="task__modal-container modal-container"
             data-modal-container="task"
           >
-            <div class="task__modal-content">
+            <div class="task__modal-content modal-content">
               <button class="task__modal-close close-modal-btn">&times;</button>
               <form id="task__form" data-form-name="task">
                 <label for="task__input-title">Title</label>
@@ -46,7 +44,7 @@
             class="pomo__modal-container modal-container"
             data-modal-container="pomo"
           >
-            <div class="pomo__modal-content">
+            <div class="pomo__modal-content modal-content">
               <button class="pomo__modal-close close-modal-btn">&times;</button>
               <form id="pomo__form" data-form-name="pomo">
                 <label for="pomo__form-work">Set Work Time</label>
@@ -68,7 +66,7 @@
             class="project__modal-container modal-container"
             data-modal-container="project"
           >
-            <div class="project__modal-content">
+            <div class="project__modal-content modal-content">
               <button class="project__modal-close close-modal-btn">
                 &times;
               </button>
@@ -82,6 +80,26 @@
             </div>
           </div>
           <!-- END OF NEW PROJECT MODAL -->
+          <!-- DELETION CONFIRMATION MODAL -->
+          <div
+            class="delete__modal-container modal-container"
+            data-modal-container="delete"
+          >
+            <div class="delete__modal-content modal-content">
+              <h2 class="delete__task-header">
+                Are you sure you want to delete this task?
+              </h2>
+              <form id="delete__form-btns">
+                <button type="submit" class="delete__task-confirm">
+                  CONFIRM
+                </button>
+                <button class="delete__task-cancel close-modal-btn">
+                  CANCEL
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- END OF DELETION CONFIRMATION MODAL -->
         </header>
         <!-- COLUMN WRAPPER -->
         <section class="columns__wrapper">
@@ -96,39 +114,7 @@
                 >+</span
               >
             </header>
-            <div class="task-column todo-column" data-column-name="todo">
-              <div class="task" draggable="true">
-                <h3 class="task-title">Call Doctor</h3>
-                <p class="task-description">Schedule for afternoon on Friday</p>
-              </div>
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor. 2</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor. 3</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor. 4</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-            </div>
+            <div class="task-column todo-column" data-column-name="todo"></div>
           </section>
           <!-- END OF TODO COLUMN -->
           <!-- IN PROGRESS COLUMN -->
@@ -145,44 +131,7 @@
             <div
               class="task-column progress-column"
               data-column-name="progress"
-            >
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor. XXX</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor YYY</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor 333</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor 444</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-            </div>
+            ></div>
           </section>
           <!-- END OF IN PROGRESS COLUMN -->
           <!-- DONE COLUMN -->
@@ -196,22 +145,14 @@
                 >+</span
               >
             </header>
-            <div class="task-column done-column" data-column-name="done">
-              <div class="task" draggable="true">
-                <h3 class="task-title">Lorem, ipsum dolor. ZZZ</h3>
-                <p class="task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                  quibusdam dolorem veritatis sint vel, quia tenetur voluptates
-                  ab suscipit magni rerum, laudantium ad non architecto
-                  accusantium, id eum quod unde?
-                </p>
-              </div>
-            </div>
+            <div class="task-column done-column" data-column-name="done"></div>
           </section>
         </section>
         <!-- END OF COLUMN WRAPPER -->
       </section>
       <!-- END OF BOARD WRAPPER -->
     </main>
+    <script type="module" src="./board.js" defer></script>
+    <script type="module" src="./drag.js" defer></script>
   </body>
 </html>
