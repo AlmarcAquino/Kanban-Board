@@ -12,94 +12,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/project-board.css" />
   </head>
   <body>
     <main class="page__wrapper">
       <!-- BOARD WRAPPER -->
       <section class="board__wrapper">
         <header class="toolbar">
-          <!-- HOME / PROJECTS LIST BUTTON -->
-          <span id="home-btn">HOME</span>
-          <!-- NEW TASK MODAL -->
-          <div
-            class="task__modal-container modal-container"
-            data-modal-container="task"
-          >
-            <div class="task__modal-content modal-content">
-              <button class="task__modal-close close-modal-btn">&times;</button>
-              <form id="task__form" data-form-name="task">
-                <label for="task__input-title">Title</label>
-                <input type="text" id="task__input-title" />
-                <label for="task__input-description">Description</label>
-                <input type="text" id="task__input-description" />
-                <button type="submit" id="task__submit">Add task</button>
-              </form>
-            </div>
+          <div class="toolbar__btns-container">
+            <a href="./index.html" class="home-btn">HOME</a>
+            <span class="project__modal-open" data-modal-open="project"
+              >NEW PROJECT</span
+            >
           </div>
-          <!-- END OF NEW TASK MODAL -->
-          <!-- POMODORO MODAL -->
-          <span class="pomo__modal-open" data-modal-open="pomo">OPEN POMO</span>
-          <div
-            class="pomo__modal-container modal-container"
-            data-modal-container="pomo"
-          >
-            <div class="pomo__modal-content modal-content">
-              <button class="pomo__modal-close close-modal-btn">&times;</button>
-              <form id="pomo__form" data-form-name="pomo">
-                <label for="pomo__form-work">Set Work Time</label>
-                <input type="number" name="" id="pomo__form-work" />
-                <label for="pomo__form-break">Set Break Time</label>
-                <input type="number" name="" id="pomo__form-break" />
-                <button type="submit" id="toolbar__add-submit">
-                  Start Timer
-                </button>
-              </form>
-            </div>
+          <h1 class="project__title">TITLE</h1>
+          <div class="toolbar__btns-container">
+            <span class="pomo__modal-open" data-modal-open="pomo"
+              >OPEN POMO</span
+            >
+            <span class="settings__modal-open">SETTINGS</span>
           </div>
-          <!-- END OF POMODORO MODAL -->
-          <!-- NEW PROJECT MODAL -->
-          <span class="project__modal-open" data-modal-open="project"
-            >NEW PROJECT</span
-          >
-          <div
-            class="project__modal-container modal-container"
-            data-modal-container="project"
-          >
-            <div class="project__modal-content modal-content">
-              <button class="project__modal-close close-modal-btn">
-                &times;
-              </button>
-              <form id="project__form" data-form-name="project">
-                <label for="project__form-title">PROJECT TITLE</label>
-                <input type="text" id="project__form-title" />
-                <button type="submit" id="project__form-submit">
-                  LETS GOOOO
-                </button>
-              </form>
-            </div>
-          </div>
-          <!-- END OF NEW PROJECT MODAL -->
-          <!-- DELETION CONFIRMATION MODAL -->
-          <div
-            class="delete__modal-container modal-container"
-            data-modal-container="delete"
-          >
-            <div class="delete__modal-content modal-content">
-              <h2 class="delete__task-header">
-                Are you sure you want to delete this task?
-              </h2>
-              <form id="delete__form-btns">
-                <button type="submit" class="delete__task-confirm">
-                  CONFIRM
-                </button>
-                <button class="delete__task-cancel close-modal-btn">
-                  CANCEL
-                </button>
-              </form>
-            </div>
-          </div>
-          <!-- END OF DELETION CONFIRMATION MODAL -->
         </header>
         <!-- COLUMN WRAPPER -->
         <section class="columns__wrapper">
@@ -120,7 +53,7 @@
           <!-- IN PROGRESS COLUMN -->
           <section class="column__container">
             <header class="column__header">
-              <h3 class="column__title">DOING</h3>
+              <h3 class="column__title">In Progress</h3>
               <span
                 class="add-task-btn"
                 data-modal-open="task"
@@ -152,7 +85,81 @@
       </section>
       <!-- END OF BOARD WRAPPER -->
     </main>
-    <script type="module" src="./board.js" defer></script>
-    <script type="module" src="./drag.js" defer></script>
+    <!-- MODALs -->
+    <!-- POMODORO MODAL -->
+    <div
+      class="pomo__modal-container modal-container"
+      data-modal-container="pomo"
+    >
+      <div class="pomo__modal-content modal-content">
+        <button class="pomo__modal-close close-modal-btn">&times;</button>
+        <form id="pomo__form" data-form-name="pomo">
+          <label for="pomo__form-work">Set Work Time</label>
+          <input type="number" name="" id="pomo__form-work" />
+          <label for="pomo__form-break">Set Break Time</label>
+          <input type="number" name="" id="pomo__form-break" />
+          <button type="submit" id="toolbar__add-submit">Start Timer</button>
+        </form>
+      </div>
+    </div>
+    <!-- END OF POMODORO MODAL -->
+    <!-- NEW TASK MODAL -->
+    <div
+      class="task__modal-container modal-container"
+      data-modal-container="task"
+    >
+      <div class="task__modal-content modal-content">
+        <button class="task__modal-close close-modal-btn">&times;</button>
+        <form id="task__form" data-form-name="task">
+          <label for="task__input-title">Title</label>
+          <input type="text" id="task__input-title" />
+          <label for="task__input-description">Description</label>
+          <input
+            type="text"
+            id="task__input-description"
+            data-task-description
+          />
+          <button type="submit" id="task__submit">Add task</button>
+        </form>
+      </div>
+    </div>
+    <!-- END OF NEW TASK MODAL -->
+    <!-- NEW PROJECT MODAL -->
+    <div
+      class="project__modal-container modal-container"
+      data-modal-container="project"
+    >
+      <div class="project__modal-content modal-content">
+        <button class="project__modal-close close-modal-btn">&times;</button>
+        <form id="project__form" data-form-name="project">
+          <label for="project__form-title">PROJECT TITLE</label>
+          <input type="text" id="project__form-title" />
+          <button type="submit" id="project__form-submit">LETS GOOOO</button>
+        </form>
+      </div>
+    </div>
+    <!-- END OF NEW PROJECT MODAL -->
+    <!-- DELETION CONFIRMATION MODAL -->
+    <div
+      class="delete__modal-container modal-container"
+      data-modal-container="delete"
+    >
+      <div class="delete__modal-content modal-content">
+        <h2 class="delete__task-header">
+          Are you sure you want to delete this task?
+        </h2>
+        <form id="delete__form-btns">
+          <button type="submit" class="delete__task-confirm">CONFIRM</button>
+          <button class="delete__task-cancel close-modal-btn">CANCEL</button>
+        </form>
+      </div>
+    </div>
+    <!-- END OF DELETION CONFIRMATION MODAL -->
+    <!-- SETTINGS MODAL -->
+    <!-- TODO: ADD SETTINGS MODAL -->
+    <!-- END OF SETTINGS MODAL -->
+    <!-- END OF MODALS -->
+    <script type="module" src="./Scripts/board.js" defer></script>
+    <script type="module" src="./Scripts/drag.js" defer></script>
   </body>
 </html>
