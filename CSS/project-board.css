@@ -1,0 +1,72 @@
+/* --------
+
+    TOOLBAR
+
+-------- */
+.toolbar {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  position: relative;
+}
+
+/* --------
+
+    COLUMNS
+
+   -------- */
+.columns__wrapper {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  height: 100%;
+  width: 100%;
+}
+
+.column__container {
+  width: 30%;
+  height: 77vh;
+  background-color: #afa9a9;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.column__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #614747;
+}
+
+.task-column {
+  width: 100%;
+  padding: 1.25rem;
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-gutter: stable both-edges;
+}
+
+/* --------
+
+    TASKS
+
+   -------- */
+.task {
+  background-color: #cecccc;
+  padding: 1.25rem;
+  cursor: move;
+  transition: transform 0.6s ease;
+}
+
+.is-dragging {
+  transform: scale(1.025);
+  background-color: #fff;
+}
+
+.delete-task-btn {
+  background-color: green;
+}
