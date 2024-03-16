@@ -1,1 +1,91 @@
 <!-- TODO: Create (landing) page containing all current projects -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/index.css" />
+  </head>
+  <body>
+    <main class="page__wrapper">
+      <section class="board__wrapper">
+        <header>
+          <h1>Project List</h1>
+          <a href="./board.html">Board</a>
+        </header>
+        <section class="projects__wrapper">
+          <div class="project__tile-container">
+            <h2 class="project__name">Project 1</h2>
+            <div class="project__description-container">
+              <p class="project__description-todo">To-Do</p>
+              <p class="project__description-doing">In Progress</p>
+              <p class="project__description-done">Done</p>
+            </div>
+          </div>
+          <div class="project__tile-container">
+            <h2 class="project__name">Project 2</h2>
+            <div class="project__description-container">
+              <p class="project__description-todo">To-Do</p>
+              <p class="project__description-doing">In Progress</p>
+              <p class="project__description-done">Done</p>
+            </div>
+          </div>
+          <div class="project__tile-container">
+            <h2 class="project__name">Project 3</h2>
+            <div class="project__description-container">
+              <p class="project__description-todo">To-Do</p>
+              <p class="project__description-doing">In Progress</p>
+              <p class="project__description-done">Done</p>
+            </div>
+          </div>
+          <div class="project__tile-container">
+            <h2 class="project__name">Project 3</h2>
+            <div class="project__description-container">
+              <p class="project__description-todo">To-Do</p>
+              <p class="project__description-doing">In Progress</p>
+              <p class="project__description-done">Done</p>
+            </div>
+          </div>
+          <div class="project__tile-container">
+            <h2 class="project__name">Project 3</h2>
+            <div class="project__description-container">
+              <p class="project__description-todo">To-Do</p>
+              <p class="project__description-doing">In Progress</p>
+              <p class="project__description-done">Done</p>
+            </div>
+          </div>
+          <div class="project__tile-container">
+            <h2 class="project__name">Project 3</h2>
+            <div class="project__description-container">
+              <p class="project__description-todo">To-Do</p>
+              <p class="project__description-doing">In Progress</p>
+              <p class="project__description-done">Done</p>
+            </div>
+          </div>
+          <span class="project__modal-open" data-modal-open="project"
+            >NEW PROJECT</span
+          >
+        </section>
+      </section>
+      <!-- NEW PROJECT MODAL -->
+      <div
+        class="project__modal-container modal-container"
+        data-modal-container="project"
+      >
+        <div class="project__modal-content modal-content">
+          <button class="project__modal-close close-modal-btn">&times;</button>
+          <form id="project__form" data-form-name="project">
+            <label for="project__form-title">PROJECT TITLE</label>
+            <input type="text" id="project__form-title" />
+            <button type="submit" id="project__form-submit">LETS GOOOO</button>
+          </form>
+        </div>
+      </div>
+      <!-- END OF NEW PROJECT MODAL -->
+    </main>
+    <script type="module" src="./Scripts/index.js" defer></script>
+    <script type="module" src="./Scripts/board.js" defer></script>
+  </body>
+</html>
