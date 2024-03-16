@@ -1,10 +1,11 @@
-export { updateTaskList };
+export { addTaskToColumn, closeModal, clearFormInputs };
+import { updateStorageList } from './storage.js';
 //
-// GLOBALS
+//  GLOBALS
 //
 
 //
-// MODALS
+//  MODALS
 //
 // Get list of all buttons which open a modal
 const openModalBtns = document.querySelectorAll('[data-modal-open]');
@@ -30,7 +31,7 @@ const manageModal = (modalInfo) => {
     } else if (e.target.classList.contains('delete__task-confirm')) {
       closeModal(modal, e);
       modalInfo.targetTask.remove();
-      updateTaskList();
+      updateStorageList('task');
     }
   });
 
@@ -63,9 +64,10 @@ const manageModal = (modalInfo) => {
         );
         closeModal(modal);
       }
-      updateTaskList();
+      updateStorageList('task');
       modalForm.removeEventListener('submit', handleFormSubmission);
     };
+
     modalForm.addEventListener('submit', handleFormSubmission);
   }
 };
@@ -73,6 +75,7 @@ const manageModal = (modalInfo) => {
 // Hide modal
 const closeModal = (modal, event) => {
   if (event) event.preventDefault();
+  console.log(modal);
 
   modal.classList.remove('modal-displayed');
 };
@@ -96,7 +99,7 @@ const getModalInformation = (btn) => {
 };
 
 //
-// FORMS
+//  FORMS
 //
 // Get the name of the target column based on button clicked
 const determineTargetColumn = (btn) => {
@@ -150,59 +153,12 @@ const clearFormInputs = (inputs) => {
 };
 
 //
-// LOCAL STORAGE
-//
-let taskArr = [];
-const updateTaskList = () => {
-  // Reset task arr to avoid duplicate items
-  taskArr = [];
-  const currentTasks = document.querySelectorAll('.task');
-  currentTasks.forEach((task) => {
-    let taskObj = {};
-    taskObj.taskColumn = task.closest('.task-column').dataset.columnName;
-    taskObj.taskTitle = task.querySelector('.task-title').innerText;
-    const taskDescriptionEl = task.querySelector('.task-description');
-    taskObj.taskDescription = taskDescriptionEl
-      ? taskDescriptionEl.innerText
-      : '';
-    taskArr.push(taskObj);
-  });
-  storeTaskList(taskArr);
-};
-
-// Update local storage with current task list
-const storeTaskList = (taskList) => {
-  const serializedTaskList = JSON.stringify(taskList);
-  localStorage.setItem('taskList', serializedTaskList);
-};
-
-// may be due to input type
-const displayTaskList = () => {
-  const taskList = JSON.parse(localStorage.getItem('taskList'));
-  // Pull information for each task on the board
-  taskList.forEach((task) => {
-    const { taskTitle, taskDescription, taskColumn } = task;
-    const taskInfo = [taskTitle, taskDescription];
-    const taskName = taskColumn;
-    const isAddedFromModal = false;
-    // Add each task to corresponding columns
-    addTaskToColumn(taskInfo, taskName, isAddedFromModal);
-  });
-};
-
-// Initialize board with tasks on page load
-window.onload = () => {
-  displayTaskList();
-};
-
-//
 //  TASKS
 //
 taskColumnContainers.forEach((column) => {
   // Handle task deletion
   column.addEventListener('click', (e) => {
     const targetTask = e.target.closest('.task');
-    let modalInfo = {};
     if (e.target.classList.contains('delete-task-btn')) {
       manageModal({
         modalName: 'delete',
