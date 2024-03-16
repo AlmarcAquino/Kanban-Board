@@ -1,0 +1,40 @@
+/* --------
+
+    VARIABLES
+
+   -------- */
+:root {
+  --project-tile-size: 12rem;
+}
+
+/* --------
+
+    PROJECTS WRAPPER
+
+   -------- */
+.projects__wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: var(--project-tile-size);
+  grid-auto-rows: var(--project-tile-size);
+  background-color: #b8e7b1;
+  padding: 1rem;
+  gap: 1.5rem;
+  height: 75vh;
+}
+
+/* --------
+
+    PROJECT TILES
+
+   -------- */
+.project__tile-container {
+  background-color: #d3b8b8;
+  padding: 3.5rem;
+  height: var(--project-tile-size);
+}
+
+.project__name {
+  margin-bottom: 1rem;
+  font-size: 700;
+}
