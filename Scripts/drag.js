@@ -1,4 +1,4 @@
-import { updateTaskList } from './board.js';
+import { updateStorageList } from './storage.js';
 
 // Get all tasks and task columns
 const taskTiles = document.querySelectorAll('.task');
@@ -14,7 +14,7 @@ taskColumns.forEach((column) => {
   // Remove 'is-dragging' class when task is no longer being dragged
   column.addEventListener('dragend', (e) => {
     if (e.target.matches('.task')) e.target.classList.remove('is-dragging');
-    updateTaskList();
+    updateStorageList('task');
   });
 
   column.addEventListener('dragover', (e) => {
